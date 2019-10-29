@@ -384,7 +384,6 @@
             this.metroTextBox1.TabIndex = 4;
             this.metroTextBox1.Theme = MetroFramework.MetroThemeStyle.Light;
             this.metroTextBox1.TextChanged += new System.EventHandler(this.metroTextBox1_TextChanged);
-            this.metroTextBox1.Click += new System.EventHandler(this.metroTextBox1_Click);
             // 
             // metroLabel1
             // 

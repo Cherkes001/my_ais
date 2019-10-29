@@ -31,8 +31,6 @@ namespace Kursach
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "kursachDataSet.Категории". При необходимости она может быть перемещена или удалена.
-            this.категорииTableAdapter.Fill(this.kursachDataSet.Категории);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "kursachDataSet.Каталог_товаров". При необходимости она может быть перемещена или удалена.
             this.каталог_товаровTableAdapter.Fill(this.kursachDataSet.Каталог_товаров);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "kursachDataSet.Заказы". При необходимости она может быть перемещена или удалена.
@@ -70,7 +68,7 @@ namespace Kursach
                 index = item.Index;
             }
             string name = каталог_товаровDataGridView.Rows[index].Cells[1].Value.ToString();
-            int price = int.Parse(каталог_товаровDataGridView.Rows[index].Cells[0].Value.ToString());
+            int price = int.Parse(каталог_товаровDataGridView.Rows[index].Cells[2].Value.ToString());
 
             if (metroTextBox1.Text == "")
             {
@@ -95,5 +93,18 @@ namespace Kursach
             }
         }
 
+
+        private void metroTextBox2_TextChanged(object sender, EventArgs e)
+        {
+            this.каталог_товаровTableAdapter.SearchCatalog(this.kursachDataSet.Каталог_товаров, metroTextBox2.Text);
+        }
+
+        private void заказыBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.заказыBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.kursachDataSet);
+
+        }
     }
 }

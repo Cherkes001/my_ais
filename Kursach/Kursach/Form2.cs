@@ -67,12 +67,7 @@ namespace Kursach
         {
             Form3 newForm = new Form3();
             newForm.Show();
-            this.Hide();
         }
 
-        private void metroTextBox1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
